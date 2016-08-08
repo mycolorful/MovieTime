@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">电影时光</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="movie_news_desc">第19届上海国际电影节即将于6月11日拉开大幕。将近400部电影佳作登陆魔都。其中不仅有塔科夫斯基、维斯康蒂等多部经典作品，也有《聚焦》、《流浪的迪潘》等获奖佳作。</string>
+    <string name="movie_news_title">《超能敢死队》曝NBA版宣传片 科比为老东家湖人捉鬼 尼克斯三代球星齐聚</string>
+    <string name="movie_news_time">14小时前</string>
+
+    <string-array name="main_fra_title">
+        <item>影讯</item>
+        <item>新片上映</item>
+        <item>北美票房</item>
+    </string-array>
+</resources>
