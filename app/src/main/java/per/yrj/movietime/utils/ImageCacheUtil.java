@@ -1,10 +1,6 @@
 package per.yrj.movietime.utils;
 
 
-import java.io.File;
-import java.io.IOException;
-import java.io.OutputStream;
-
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
@@ -12,14 +8,14 @@ import android.graphics.Bitmap;
 import android.graphics.Bitmap.CompressFormat;
 import android.graphics.BitmapFactory;
 import android.os.Environment;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
 import android.support.v4.util.LruCache;
-import android.util.Log;
 
 import com.android.volley.toolbox.ImageLoader.ImageCache;
 import com.jakewharton.disklrucache.DiskLruCache;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.OutputStream;
 
 /**
  * 图片缓存帮助类
@@ -106,6 +102,7 @@ public class ImageCacheUtil implements ImageCache {
                     } else {
                         editor.abort();
                     }
+                    outputStream.close();
                 }
                 mDiskLruCache.flush();
             }

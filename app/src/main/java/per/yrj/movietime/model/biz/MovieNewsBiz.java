@@ -1,11 +1,6 @@
 package per.yrj.movietime.model.biz;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
-
-import com.android.volley.RequestQueue;
-import com.android.volley.toolbox.Volley;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,12 +9,7 @@ import java.util.regex.Pattern;
 
 import per.yrj.movietime.model.domain.MovieNewsItem;
 import per.yrj.movietime.model.http.NewsRequest;
-import per.yrj.movietime.model.retrofit.DrawableService;
-import per.yrj.movietime.model.retrofit.JSONObjectConverterFactory;
 import per.yrj.movietime.model.retrofit.NewsService;
-import per.yrj.movietime.utils.ImageCacheUtil;
-import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
 import rx.schedulers.Schedulers;
@@ -28,19 +18,14 @@ import rx.schedulers.Schedulers;
  * @author yirj.
  *         on 2016/8/8
  */
-public class MovieNewsBiz implements IMovieNewsBiz {
-    private RequestQueue mRequestQueue;
-    private ImageCacheUtil mImageCache;
+public class MovieNewsBiz extends BaseBiz implements IMovieNewsBiz{
 
     public MovieNewsBiz(Context context){
-        //初始化RequestQueue
-		mRequestQueue = Volley.newRequestQueue(context);
-        mImageCache = new ImageCacheUtil(context, "movie_news");
+        super(context);
     }
 
-
     @Override
-    public void requestData(final DataRequestListener<List<MovieNewsItem>> listener) {
+    public void requestData(final DataRequestListener listener) {
 
         NewsRequest.getInstance().create(NewsService.class)
                 .getNews().subscribeOn(Schedulers.io())
@@ -121,22 +106,5 @@ public class MovieNewsBiz implements IMovieNewsBiz {
         return data;
     }
 
-    @Override
-    public void loadImage(String url, DataRequestListener<Drawable> listener){
-        new Retrofit.Builder()
-                .baseUrl(url)
-                .addConverterFactory(JSONObjectConverterFactory.create())
-                .addCallAdapterFactory(RxJavaCallAdapterFactory.create()).build()
-                .create(DrawableService.class)
-                .loadBitmap(url)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Action1<Drawable>() {
-                    @Override
-                    public void call(Drawable drawable) {
-                        
-                    }
-                })
-    }
 
 }

@@ -7,8 +7,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.android.volley.toolbox.ImageLoader;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -107,10 +105,10 @@ public class TopFragment extends BaseFragment {
             holder.tvName.setText(movie.getTitle());
             holder.tvBox.setText(movie.getBox() + "");
             holder.tvRank.setText(movie.getRank() + "");
-            ImageLoader imageLoader = new ImageLoader(mRequestQueue, imageCache);
-            ImageLoader.ImageListener listener = ImageLoader.getImageListener(holder.ivPoster
-                    , R.drawable.ic_empty_page, R.drawable.ic_error_page);
-            imageLoader.get(movie.getPosterUrl(), listener);
+//            ImageLoader imageLoader = new ImageLoader(mRequestQueue, imageCache);
+//            ImageLoader.ImageListener listener = ImageLoader.getImageListener(holder.ivPoster
+//                    , R.drawable.ic_empty_page, R.drawable.ic_error_page);
+//            imageLoader.get(movie.getPosterUrl(), listener);
         }
 
         @Override

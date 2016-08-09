@@ -2,11 +2,10 @@ package per.yrj.movietime.presenter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
-
-import com.android.volley.toolbox.ImageLoader;
 
 import java.util.List;
 
@@ -74,14 +73,27 @@ public class MovieNewsPresenter {
         }
 
         @Override
-        public void onBindViewHolder(MovieNewsFragment.MyViewHolder holder, final int position) {
+        public void onBindViewHolder(final MovieNewsFragment.MyViewHolder holder, final int position) {
             MovieNewsItem item = data.get(position);
             holder.tvTitle.setText(item.getTitle());
             holder.tvPubTime.setText(item.getTime());
             holder.tvDesc.setText(item.getDesc());
-            ImageLoader.ImageListener listener = ImageLoader.getImageListener(holder.ivPoster
-                    , R.drawable.ic_empty_page, R.drawable.ic_error_page);
-            movieNewsBiz.loadImage(item.getImgUrl(), listener);
+            movieNewsBiz.loadImage(item.getImgUrl(), new DataRequestListener<Bitmap>() {
+                @Override
+                public void onRequest() {
+
+                }
+
+                @Override
+                public void onRequestSucceed(Bitmap bitmap) {
+                    holder.ivPoster.setImageBitmap(bitmap);
+                }
+
+                @Override
+                public void onError(String msg) {
+
+                }
+            });
 
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
