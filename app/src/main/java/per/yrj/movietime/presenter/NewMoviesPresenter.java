@@ -11,7 +11,7 @@ import java.util.List;
 import per.yrj.movietime.R;
 import per.yrj.movietime.model.biz.DataRequestListener;
 import per.yrj.movietime.model.biz.INewMoviesBiz;
-import per.yrj.movietime.model.biz.NewMoviesBiz;
+import per.yrj.movietime.model.bizImp.NewMoviesBiz;
 import per.yrj.movietime.model.domain.Movie;
 import per.yrj.movietime.view.fragments.BaseFragment;
 import per.yrj.movietime.view.fragments.IBaseFragment;

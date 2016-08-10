@@ -12,7 +12,7 @@ import java.util.List;
 import per.yrj.movietime.R;
 import per.yrj.movietime.model.biz.DataRequestListener;
 import per.yrj.movietime.model.biz.IMovieNewsBiz;
-import per.yrj.movietime.model.biz.MovieNewsBiz;
+import per.yrj.movietime.model.bizImp.MovieNewsBiz;
 import per.yrj.movietime.model.domain.MovieNewsItem;
 import per.yrj.movietime.view.activities.NewsActivity;
 import per.yrj.movietime.view.fragments.BaseFragment;

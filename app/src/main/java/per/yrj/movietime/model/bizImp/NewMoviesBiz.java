@@ -1,4 +1,4 @@
-package per.yrj.movietime.model.biz;
+package per.yrj.movietime.model.bizImp;
 
 import android.content.Context;
 import android.util.Log;
@@ -10,6 +10,8 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import per.yrj.movietime.model.biz.DataRequestListener;
+import per.yrj.movietime.model.biz.INewMoviesBiz;
 import per.yrj.movietime.model.domain.Movie;
 import per.yrj.movietime.model.http.DouBanRequest;
 import per.yrj.movietime.model.retrofit.MovieService;
@@ -22,7 +24,7 @@ import rx.schedulers.Schedulers;
  * @author yirj.
  *         on 2016/8/8
  */
-public class NewMoviesBiz extends BaseBiz implements INewMoviesBiz{
+public class NewMoviesBiz extends BaseBiz implements INewMoviesBiz {
     private static final String URL_SUFFIX = "in_theaters";
 
     public NewMoviesBiz(Context context) {

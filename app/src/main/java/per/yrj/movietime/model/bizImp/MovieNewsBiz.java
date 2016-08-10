@@ -1,4 +1,4 @@
-package per.yrj.movietime.model.biz;
+package per.yrj.movietime.model.bizImp;
 
 import android.content.Context;
 
@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import per.yrj.movietime.model.biz.DataRequestListener;
+import per.yrj.movietime.model.biz.IMovieNewsBiz;
 import per.yrj.movietime.model.domain.MovieNewsItem;
 import per.yrj.movietime.model.http.NewsRequest;
 import per.yrj.movietime.model.retrofit.NewsService;
@@ -18,7 +20,7 @@ import rx.schedulers.Schedulers;
  * @author yirj.
  *         on 2016/8/8
  */
-public class MovieNewsBiz extends BaseBiz implements IMovieNewsBiz{
+public class MovieNewsBiz extends BaseBiz implements IMovieNewsBiz {
 
     public MovieNewsBiz(Context context){
         super(context);

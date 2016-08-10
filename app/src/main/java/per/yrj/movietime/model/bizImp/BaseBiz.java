@@ -1,8 +1,10 @@
-package per.yrj.movietime.model.biz;
+package per.yrj.movietime.model.bizImp;
 
 import android.content.Context;
 import android.graphics.Bitmap;
 
+import per.yrj.movietime.model.biz.DataRequestListener;
+import per.yrj.movietime.model.biz.IBaseBiz;
 import per.yrj.movietime.model.retrofit.BitmapService;
 import per.yrj.movietime.model.retrofit.DrawableConverterFactory;
 import per.yrj.movietime.utils.ImageCacheUtil;
